@@ -1,7 +1,7 @@
 const BOOKS_API_KEY = import.meta.env.VITE_BOOKS_API_KEY;
 
 
-const BookCard = ({ bookId, title, thumbnail, authors, publishedDate }) => {
+const BookCard = ({ bookId, title, authors, publishedDate }) => {
 
   return (
     <a
