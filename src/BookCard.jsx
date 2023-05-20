@@ -1,11 +1,11 @@
 const BOOKS_API_KEY = import.meta.env.VITE_BOOKS_API_KEY;
-
+import { Link } from "react-router-dom";
 
 const BookCard = ({ bookId, title, authors, publishedDate }) => {
-
   return (
-    <a
-      href={`https://www.googleapis.com/books/v1/volumes/${bookId}?key=${BOOKS_API_KEY}`}
+    <Link
+    //   to={`https://www.googleapis.com/books/v1/volumes/${bookId}?key=${BOOKS_API_KEY}`}
+        to={`/book/${bookId}`}
     >
       <div className="group hover:bg-gray-100 hover:rounded-xl w-44 mr-5 mb-4 p-2">
         <div className="w-40 mb-6 h-60">
@@ -28,9 +28,9 @@ const BookCard = ({ bookId, title, authors, publishedDate }) => {
         <p className="font-normal text-gray-500">
           {authors ? authors[0] : "Unknown Author"}
         </p>
-        <p className=" text-xs text-gray-500">{publishedDate} </p>
+        <p className=" text-xs text-gray-500">{publishedDate}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 
