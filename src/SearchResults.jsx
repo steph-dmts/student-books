@@ -10,17 +10,16 @@ function SearchResults() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
+    async function searchBooks() {
+      const res = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=books&maxResults=40&startIndex=0&key=${BOOKS_API_KEY}`
+      );
+      const json = await res.json();
+      console.log(json.items);
+      setSearchResults(json.items);
+    }
     searchBooks();
   }, [query]);
-
-  async function searchBooks() {
-    const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=books&maxResults=40&startIndex=0&key=${BOOKS_API_KEY}`
-    );
-    const json = await res.json();
-    console.log(json.items);
-    setSearchResults(json.items);
-  }
 
   return (
     <div className="ml-6">
