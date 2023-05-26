@@ -4,6 +4,7 @@ import Discover from "./Discover";
 import Home from "./Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Ereader from "./Ereader";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/book/:id" element={<BookDetails />} />
+          <Route path="/ereader/:id" element={<Ereader />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>
