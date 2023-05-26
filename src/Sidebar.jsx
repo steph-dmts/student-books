@@ -131,13 +131,13 @@ const Sidebar = () => {
                 alt=""
               />
               <NavLink
-              to="/notebook"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-red-500" : ""
-              }
-            >
-              Notebook
-            </NavLink>
+                to="/notebook"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "bg-red-500" : ""
+                }
+              >
+                Notebook
+              </NavLink>
             </li>
           </ul>
         </div>
