@@ -22,7 +22,6 @@ const BookDetails = () => {
       <div className="col-span-5 mt-10">
         <div className="grid grid-cols-[24%_4%_66%] mx-auto px-14 max-w-[90rem]">
           <div className="">
-            <SearchResults />
             <img
               className="rounded-xl shadow-3xl"
               src={`https://books.google.com/books/publisher/content/images/frontcover/${id}?fife=w400-h600&source=gbs_api`}
@@ -41,8 +40,14 @@ const BookDetails = () => {
           <div>
             <p className=" font-serif text-4xl font-bold">{book.title}</p>
             <p>{book.authors[0]}</p>
-            <Link to={`/ereader/${id}`}  className=" bg-amber-500 p-1 m-2 rounded">Read</Link>
-            <button>Want to read</button>
+            <div className="mt-2 mb-2">
+              <Link to={`/ereader/${id}`} className="bg-amber-500 p-1 rounded">
+                Read
+              </Link>
+            </div>
+            <div>
+              <button>Want to read</button>
+            </div>
             <button>share</button>
             <div>
               <p>Book details</p>
