@@ -10,7 +10,11 @@ function SearchResults() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
+    let timer;
     async function searchBooks() {
+      if (query === "") {
+        return;
+      }
       const res = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=books&maxResults=40&startIndex=0&key=${BOOKS_API_KEY}`
       );
@@ -18,13 +22,22 @@ function SearchResults() {
       console.log(json.items);
       setSearchResults(json.items);
     }
-    searchBooks();
+
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      searchBooks();
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [query]);
 
   return (
     <div className="ml-6">
-      <form onChange={(e) => setQuery(e.target.value)}>
+      <form>
         <input
+          onChange={(e) => setQuery(e.target.value)}
           className=" border-2 w-[90%] m-8 h-12 p-2 rounded bg-gray-200"
           type="text"
           placeholder="Search by title, author, ISBN & topic"
