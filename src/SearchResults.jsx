@@ -25,7 +25,7 @@ function SearchResults() {
     <div className="ml-6">
       <form onChange={(e) => setQuery(e.target.value)}>
         <input
-          className="border-emerald-600 border-2"
+          className=" border-2 w-[90%] m-8 h-12 p-2 rounded bg-gray-200"
           type="text"
           placeholder="Search by title, author, ISBN & topic"
           value={query}
