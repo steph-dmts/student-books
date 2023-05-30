@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="sticky top-0 left-0">
+    <div className="sticky top-0 left-0 shadow-xl">
       <h1 className="ml-2 mt-2 mb-4 text-2xl font-bold font-serif">
         Student Books
       </h1>
